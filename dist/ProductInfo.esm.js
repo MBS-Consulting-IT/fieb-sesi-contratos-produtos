@@ -180,7 +180,7 @@ const getProduct = id =>
  * @return {String} nome completo do produto
  */
 const getName = id =>
-  findProduct(id).name;
+  findProduct(id)?.name || null;
 
 /**
  * @public
@@ -188,7 +188,7 @@ const getName = id =>
  * @return {String} nome abreviado do produto
  */
 const getAbbr = id =>
-  findProduct(id).abbr;
+  findProduct(id)?.abbr || null;
 
 /**
  * @public
@@ -196,7 +196,7 @@ const getAbbr = id =>
  * @return {String} categoria do produto
  */
 const getCategory = id =>
-  findProduct(id).category;
+  findProduct(id)?.category || null;
 
 /**
  * @public
@@ -235,6 +235,11 @@ const strip = id =>
  * @return {Product} informações do produto
  */
 function findProduct (id) {
+  if (!id || id === '') {
+    console.info('Código de produto vazio.');
+    return null
+  }
+
   if (!isValid(id)) {
     return handleErrors(
       'Código Inválido. O código deve respeitar os formatos: ' +
@@ -248,7 +253,7 @@ function findProduct (id) {
   );
 
   if (!product) {
-    return handleErrors(`Código não identificado. Código: ${id}`)
+    console.info(`Código de produto não identificado. Código: ${id}`);
   }
 
   return product
