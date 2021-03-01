@@ -48,7 +48,7 @@ it('deve informar a não validade do código do produto dado o tamanho', () => {
 })
 
 it('deve informar a não validade do código do produto dado o formato', () => {
-  const isValid = ProductInfo.isValid('AAA.AA.A')
+  const isValid = ProductInfo.isValid('2.02.09.03.01.01.10.')
 
   expect(isValid)
     .toBe(false)
