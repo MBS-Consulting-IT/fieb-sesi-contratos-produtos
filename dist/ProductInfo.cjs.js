@@ -148,11 +148,11 @@ var products = [
 
 const ORIGINAL_PRODUCT_LENGTH = 15;
 const ORIGINAL_PRODUCT_REGEX =
-  /\d{1}\.\d{2}\.\d{2}\.\d{2}\.\d{2}\.\d{3}\.\d{3}/;
+  /\d{1}\.\d{2}\.\d{2}\.\d{2}\.\d{2}\.\d{3}\.\d{3}$/;
 
 const NEW_PRODUCT_LENGTH = 13;
 const NEW_PRODUCT_REGEX =
-  /\d{1}\.\d{2}\.\d{2}\.\d{2}\.\d{2}\.\d{2}\.\d{2}/;
+  /\d{1}\.\d{2}\.\d{2}\.\d{2}\.\d{2}\.\d{2}\.\d{2}$/;
 
 /**
  * 🔑 Métodos Públicos
