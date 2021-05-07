@@ -90,6 +90,7 @@ export default [
   {
     ids: [
       '2.02.01.01.05.002.002',
+      '2.02.01.01.05.002.001',
       '2.02.09.05.01.03.01'
     ],
     name: 'Consultoria em Ergonomia',
