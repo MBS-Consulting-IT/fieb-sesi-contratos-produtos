@@ -1,8 +1,28 @@
 {
   "name": "fieb-sesi-contratos-produtos",
-  "version": "1.0.0",
   "description": "",
-  "main": "./dist/ProductInfo.js",
+  "version": "1.0.2",
+  "main": "dist/ProductInfo.esm.js",
+  "module": "dist/ProductInfo.esm.js",
+  "browser": "dist/ProductInfo.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "dev": "jest --watchAll && rollup -c -w",
+    "prebuild": "rimraf dist",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MBS-Consulting-IT/fieb-sesi-contratos-produtos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MBS-Consulting-IT/fieb-sesi-contratos-produtos/issues"
+  },
+  "homepage": "https://github.com/MBS-Consulting-IT/fieb-sesi-contratos-produtos#readme",
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.8",
@@ -16,22 +36,5 @@
     "jest": "^26.6.3",
     "rimraf": "^3.0.2",
     "rollup": "^2.40.0"
-  },
-  "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watchAll",
-    "dev": "jest --watchAll && rollup -c -w",
-    "build": "rollup -c"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MBS-Consulting-IT/fieb-sesi-contratos-produtos.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MBS-Consulting-IT/fieb-sesi-contratos-produtos/issues"
-  },
-  "homepage": "https://github.com/MBS-Consulting-IT/fieb-sesi-contratos-produtos#readme"
+  }
 }
