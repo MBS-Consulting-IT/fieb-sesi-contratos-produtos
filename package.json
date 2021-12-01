@@ -1,7 +1,7 @@
 {
   "name": "fieb-sesi-contratos-produtos",
   "description": "",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "main": "dist/ProductInfo.esm.js",
   "module": "dist/ProductInfo.esm.js",
   "browser": "dist/ProductInfo.js",
