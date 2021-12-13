@@ -1,4 +1,20 @@
 var products = [
+    {
+    ids: [
+      '2.02.09.03.01.01.07'
+    ],
+    name: 'Assessoria do médico do trabalho na empresa',
+    abbr: 'Assessoria Médica',
+    category: 'Visitas'
+  },
+  {
+  ids: [
+    '2.02.09.03.01.01.08'
+  ],
+  name: 'Serviços de enfermagem do trabalho',
+  abbr: 'Serviços de Enfermagem',
+  category: 'Visitas'
+  },
   {
     ids: [
       '2.02.09.03.01.01.16'
