@@ -94,14 +94,13 @@ export const strip = id =>
  */
 function findProduct (id) {
   if (!id || id === '') {
-    console.info('Código de produto vazio.')
     return null
   }
 
   if (!isValid(id)) {
     return handleErrors(
-      'Código Inválido. O código deve respeitar os formatos: ' +
-      '0.00.00.00.00.000.000 ou 0.00.00.00.00.00.00. ' +
+      'Código de produto inválido. O código deve respeitar os formatos: ' +
+      '0.00.00.00.00.000.000 ou 0.00.00.00.00.00.00\n' +
       `O código informado foi: ${id}`
     )
   }
@@ -110,9 +109,7 @@ function findProduct (id) {
     ids.includes(id)
   )
 
-  if (!product) {
-    console.info(`Código de produto não identificado. Código: ${id}`)
-  }
+  if (!product) return null
 
   return product
 }
@@ -122,7 +119,7 @@ function handleErrors (message) {
   const codflowExecute = getElementValue('#inpCodFlowExecute')
   const codflowExecuteTask = getElementValue('#inpCodFlowExecuteTask')
 
-  throw new ProductException({
+  LogProductException({
     message,
     codflow,
     codflowExecute,
@@ -146,10 +143,9 @@ function getElementValue (qs) {
 /**
  * @private
  */
-function ProductException ({ message, codflow, codflowExecute, codflowExecuteTask }) {
-  this.name = 'ProductInfo'
-  this.message = message
-  this.codflow = codflow
-  this.codflowExecute = codflowExecute
-  this.codflowExecuteTask = codflowExecuteTask
+function LogProductException (props) {
+  return console.error({
+    name: 'ProductInfo',
+    ...props
+  })
 }
