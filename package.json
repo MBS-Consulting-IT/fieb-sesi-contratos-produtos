@@ -1,7 +1,6 @@
 {
   "name": "fieb-sesi-contratos-produtos",
-  "description": "",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "main": "dist/ProductInfo.esm.js",
   "module": "dist/ProductInfo.esm.js",
   "browser": "dist/ProductInfo.js",
@@ -16,8 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/MBS-Consulting-IT/fieb-sesi-contratos-produtos.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "MBS Consulting",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MBS-Consulting-IT/fieb-sesi-contratos-produtos/issues"
