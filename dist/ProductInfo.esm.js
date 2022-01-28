@@ -1,5 +1,5 @@
 var products = [
-    {
+  {
     ids: [
       '2.02.09.03.01.01.07'
     ],
@@ -8,12 +8,12 @@ var products = [
     category: 'Visitas'
   },
   {
-  ids: [
-    '2.02.09.03.01.01.08'
-  ],
-  name: 'Serviços de enfermagem do trabalho',
-  abbr: 'Serviços de Enfermagem',
-  category: 'Visitas'
+    ids: [
+      '2.02.09.03.01.01.08'
+    ],
+    name: 'Serviços de enfermagem do trabalho',
+    abbr: 'Serviços de Enfermagem',
+    category: 'Visitas'
   },
   {
     ids: [
@@ -373,14 +373,13 @@ const strip = id =>
  */
 function findProduct (id) {
   if (!id || id === '') {
-    console.info('Código de produto vazio.');
     return null
   }
 
   if (!isValid(id)) {
     return handleErrors(
-      'Código Inválido. O código deve respeitar os formatos: ' +
-      '0.00.00.00.00.000.000 ou 0.00.00.00.00.00.00. ' +
+      'Código de produto inválido. O código deve respeitar os formatos: ' +
+      '0.00.00.00.00.000.000 ou 0.00.00.00.00.00.00\n' +
       `O código informado foi: ${id}`
     )
   }
@@ -389,9 +388,7 @@ function findProduct (id) {
     ids.includes(id)
   );
 
-  if (!product) {
-    console.info(`Código de produto não identificado. Código: ${id}`);
-  }
+  if (!product) return null
 
   return product
 }
@@ -401,12 +398,12 @@ function handleErrors (message) {
   const codflowExecute = getElementValue('#inpCodFlowExecute');
   const codflowExecuteTask = getElementValue('#inpCodFlowExecuteTask');
 
-  throw new ProductException({
+  LogProductException({
     message,
     codflow,
     codflowExecute,
     codflowExecuteTask
-  })
+  });
 }
 
 /**
@@ -425,12 +422,11 @@ function getElementValue (qs) {
 /**
  * @private
  */
-function ProductException ({ message, codflow, codflowExecute, codflowExecuteTask }) {
-  this.name = 'ProductInfo';
-  this.message = message;
-  this.codflow = codflow;
-  this.codflowExecute = codflowExecute;
-  this.codflowExecuteTask = codflowExecuteTask;
+function LogProductException (props) {
+  return console.error({
+    name: 'ProductInfo',
+    ...props
+  })
 }
 
 export { getAbbr, getCategory, getName, getProduct, isValid, strip };

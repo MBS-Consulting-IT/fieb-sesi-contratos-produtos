@@ -2,10 +2,10 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ProductInfo = {}));
-})(this, (function (exports) { 'use strict';
+}(this, (function (exports) { 'use strict';
 
   var products = [
-      {
+    {
       ids: [
         '2.02.09.03.01.01.07'
       ],
@@ -14,12 +14,12 @@
       category: 'Visitas'
     },
     {
-    ids: [
-      '2.02.09.03.01.01.08'
-    ],
-    name: 'Serviços de enfermagem do trabalho',
-    abbr: 'Serviços de Enfermagem',
-    category: 'Visitas'
+      ids: [
+        '2.02.09.03.01.01.08'
+      ],
+      name: 'Serviços de enfermagem do trabalho',
+      abbr: 'Serviços de Enfermagem',
+      category: 'Visitas'
     },
     {
       ids: [
@@ -379,14 +379,13 @@
    */
   function findProduct (id) {
     if (!id || id === '') {
-      console.info('Código de produto vazio.');
       return null
     }
 
     if (!isValid(id)) {
       return handleErrors(
-        'Código Inválido. O código deve respeitar os formatos: ' +
-        '0.00.00.00.00.000.000 ou 0.00.00.00.00.00.00. ' +
+        'Código de produto inválido. O código deve respeitar os formatos: ' +
+        '0.00.00.00.00.000.000 ou 0.00.00.00.00.00.00\n' +
         `O código informado foi: ${id}`
       )
     }
@@ -395,9 +394,7 @@
       ids.includes(id)
     );
 
-    if (!product) {
-      console.info(`Código de produto não identificado. Código: ${id}`);
-    }
+    if (!product) return null
 
     return product
   }
@@ -407,12 +404,12 @@
     const codflowExecute = getElementValue('#inpCodFlowExecute');
     const codflowExecuteTask = getElementValue('#inpCodFlowExecuteTask');
 
-    throw new ProductException({
+    LogProductException({
       message,
       codflow,
       codflowExecute,
       codflowExecuteTask
-    })
+    });
   }
 
   /**
@@ -431,12 +428,11 @@
   /**
    * @private
    */
-  function ProductException ({ message, codflow, codflowExecute, codflowExecuteTask }) {
-    this.name = 'ProductInfo';
-    this.message = message;
-    this.codflow = codflow;
-    this.codflowExecute = codflowExecute;
-    this.codflowExecuteTask = codflowExecuteTask;
+  function LogProductException (props) {
+    return console.error({
+      name: 'ProductInfo',
+      ...props
+    })
   }
 
   exports.getAbbr = getAbbr;
@@ -448,5 +444,5 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));
 //# sourceMappingURL=ProductInfo.js.map
