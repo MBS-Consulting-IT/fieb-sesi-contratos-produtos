@@ -263,7 +263,8 @@ export default [
   {
     ids: [
       '2.02.01.01.09.001.001',
-      '2.02.09.03.01.01.12'
+      '2.02.09.03.01.01.12',
+      '2.02.09.03.01.01.18'
     ],
     name: 'Consultas e Exames Ocupacionais',
     abbr: 'Consultas e Exames Ocup.',
@@ -274,7 +275,7 @@ export default [
       '2.02.01.01.10.001.001'
     ],
     name: 'Consultas e Exames Ocupacionais',
-    abbr: 'Consultas e Exames Ocup. Desativ',
+    abbr: 'Consultas e Exames Ocup. Desativado',
     category: 'Atendimento InCompany'
   }
 ]
