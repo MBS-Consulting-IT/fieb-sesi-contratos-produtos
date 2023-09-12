@@ -237,7 +237,7 @@
       ],
       name: 'Consultoria em Ergonomia',
       abbr: 'Consultoria',
-      category: 'Ergonomia'
+      category: 'Consultoria SST'
     },
     {
       ids: [
